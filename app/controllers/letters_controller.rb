@@ -65,6 +65,6 @@ class LettersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def letter_params
-      params.fetch(:letter, {})
+      params.require(:letter).permit(:doc_template_id, :request_id)
     end
 end

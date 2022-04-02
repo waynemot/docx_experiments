@@ -66,6 +66,9 @@ class RequestsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def request_params
-      params.fetch(:request, {})
+      params.require(:request).permit(
+        :name,
+        :employment_type_id, :email, :address,
+        :doc_template_id, :pay_start, :pay_end, :start_date, :end_date)
     end
 end
