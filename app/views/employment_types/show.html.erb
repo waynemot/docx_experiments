@@ -1,0 +1,29 @@
+<main>
+  <div class="row mt-5">
+    <% if notice %>
+      <p id="notice"><%= notice %></p>
+    <% end %>
+  </div>
+
+
+
+
+  <div class="row mt-5">
+    <div class="col-sm-10">
+      <span class="fw-bold">
+        Name:
+      </span>
+      <%=@employment_type.name %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-10">
+     <span class="label">
+      Salary:
+    </span>
+      <%= @employment_type.salary %>
+    </div>
+  </div>
+  <%= link_to 'Edit', edit_employment_type_path(@employment_type) %> |
+  <%= link_to 'Back', employment_types_path %>
+</main>
