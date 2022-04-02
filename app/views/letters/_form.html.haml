@@ -1,0 +1,21 @@
+= form_with(model: letter) do |form|
+  - if letter.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(letter.errors.count, "error")
+        prohibited this letter from being saved:
+      %ul
+        - letter.errors.each do |error|
+          %li= error.full_message
+  .row
+    .col-sm-3
+      = form.label :request
+    .col-sm-4
+      = form.select :request_id, Request.all.collect{|r| [r.name, r.id]}, {include_blank: true}, class: "form-select"
+  .row
+    .col-sm-3
+      = form.label :template
+    .col-sm-4
+      = form.select :doc_template_id, DocTemplate.all.collect{|t| [t.name, t.id]}, {include_blank: true}, class: "form-select"
+  .actions
+    = form.submit

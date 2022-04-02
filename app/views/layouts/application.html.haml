@@ -1,0 +1,35 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title DocxExperiments
+    %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    .container{:style => "margin-top: 5em;"}
+      %nav.navbar.fixed-top.navbar-dark.bg-dark.navbar-expand-sm
+        %a.navbar-brand{:href => "#"} Docx Templates
+        %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
+          %span.navbar-toggler-icon
+        #navbarSupportedContent.collapse.navbar-collapse
+          %ul.navbar-nav.mr-auto
+            %li.nav-item.active
+              %a.nav-link{:href => requests_path}
+                Requests
+                %span.sr-only
+            %li.nav-item
+              %a.nav-link{:href => employment_types_path}
+                Employment
+                %br>/
+                Types
+            %li.nav-item
+              %a.nav-link{:href => doc_templates_path}
+                Letter
+                %br>/
+                Templates
+            %li.nav-item
+              %a.nav-link{:href => letters_path} Letters
+      = yield

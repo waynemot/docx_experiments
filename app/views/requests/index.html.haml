@@ -1,0 +1,21 @@
+.row.mt-lg-5
+  %p#notice= notice
+.row
+  %h1 Requests
+%table
+  %col{:style => "width: 30%"}/
+  %col{:style => "width: 15%"}/
+  %col{:style => "width: 15%"}/
+  %col{:style => "width: 15%"}/
+  %thead
+    %tr
+      %th{:colspan => "3"}
+  %tbody
+    - @requests.each do |request|
+      %tr
+        %td= request.name
+        %td= link_to 'Show', request
+        %td= link_to 'Edit', edit_request_path(request)
+        %td= link_to 'Destroy', request, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Request', new_request_path

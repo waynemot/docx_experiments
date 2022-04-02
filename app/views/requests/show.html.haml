@@ -1,0 +1,35 @@
+%p#notice= notice
+.row
+  .col-sm-3
+    Name:
+  .col-sm-8
+    = @request.name
+.row
+  .col-sm-3
+    email:
+  .col-sm-8
+    = @request.email
+.row
+  .col-sm-3
+    address:
+  .col-sm-8
+    = @request.address
+.row
+  .col-sm-3
+    work start/end:
+  .col-sm-8
+    = "#{@request.start_date} to #{@request.end_date}"
+.row
+  .col-sm-3
+    pay start:
+  .col-sm-8
+    = @request.pay_start
+.row
+  .col-sm-3
+    pay_end:
+  .col-sm-8
+    = @request.pay_end
+.row
+  = link_to 'Edit', edit_request_path(@request)
+  |
+  \#{link_to 'Back', requests_path}

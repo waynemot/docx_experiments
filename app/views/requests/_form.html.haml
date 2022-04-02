@@ -1,0 +1,43 @@
+= form_with(model: request) do |form|
+  - if request.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(request.errors.count, "error")
+        prohibited this request from being saved:
+      %ul
+        - request.errors.each do |error|
+          %li= error.full_message
+  .row.form-group
+    = form.label :name, class: "col-sm-2 form-label"
+    = form.text_field :name, class: "col-sm-8 form-input"
+  .row.form-group
+    = form.label :email, class: "col-sm-2 form-label"
+    = form.text_field :email, class: "col-sm-8 form-field"
+  .row.form-group
+    = form.label :address, class: "col-sm-2 form-label"
+    = form.text_field :address, class: "col-sm-8 form-input"
+  .row.form-group
+    = form.label :start_date, class: "col-sm-2 form-label"
+    = form.text_field :start_date, type: :date, class: "col-sm-8 form-input"
+  .row.form-group
+    = form.label :end_date, class: "col-sm-2 form-label"
+    = form.text_field :end_date, type: :date, class: "col-sm-8 form-input"
+  .row.form-group
+    = form.label :pay_start, class: "col-sm-2 form-label"
+    = form.text_field :pay_start, type: :date, class: "col-sm-8 form-input"
+  .row.form-group
+    = form.label :pay_end, class: "col-sm-2 form-label"
+    = form.text_field :pay_end, type: :date, class: "col-sm-8 form-input"
+  /
+    <div class="row form-group">
+    <haml_silent>
+    </haml_silent>    <div class="col-sm-4">
+    <haml_silent>
+    </haml_silent>    </div>
+    </div>
+  .row.form-group
+    = form.label :employment_type_id, class: "col-sm-2 form-label"
+    .col-sm-4
+      = form.select :employment_type_id, EmploymentType.all.collect{|e| [e.name, e.id]}, { include_blank: true }, class: "form-select"
+  .actions
+    = form.submit

@@ -1,0 +1,27 @@
+%p#notice= notice
+%h1 Letters
+%table
+  %col{:style => "width: 35%"}/
+  %col{:style => "width: 35%"}/
+  %col{:style => "width: 5%"}/
+  %col{:style => "width: 5%"}/
+  %col{:style => "width: 5%"}/
+  %col{:style => "width: 5%"}/
+  %thead
+    %tr
+      Name
+    %tr
+      Template
+    %tr
+      %th{:colspan => "4"}
+  %tbody
+    - @letters.each do |letter|
+      %tr
+        %td= letter.request.name
+        %td= letter.doc_template.name
+        %td= link_to 'Show', letter
+        %td= link_to 'Edit', edit_letter_path(letter)
+        %td= link_to 'Destroy', letter, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to 'Gen', "#"
+%br/
+= link_to 'New Letter', new_letter_path

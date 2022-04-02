@@ -1,0 +1,17 @@
+%main
+  .row.mt-5
+    - if notice
+      %p#notice= notice
+  .row.mt-5
+    .col-sm-10
+      %span.fw-bold
+        Name:
+      = @employment_type.name
+  .row
+    .col-sm-10
+      %span.label
+        Salary:
+      = @employment_type.salary
+  = link_to 'Edit', edit_employment_type_path(@employment_type)
+  |
+  \#{link_to 'Back', employment_types_path}

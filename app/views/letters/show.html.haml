@@ -1,0 +1,14 @@
+%p#notice= notice
+.row
+  .col-sm-3
+    Request Name:
+  .col-sm-5
+    = @letter.request.name
+.row
+  .col-sm-3
+    Template:
+  .col-sm-5
+    = @letter.doc_template.name
+= link_to 'Edit', edit_letter_path(@letter)
+|
+= link_to 'Back', letters_path

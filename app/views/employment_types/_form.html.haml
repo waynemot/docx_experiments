@@ -1,0 +1,26 @@
+.row
+  .col-sm-12.mt-5
+    = form_with(model: employment_type) do |form|
+      - if employment_type.errors.any?
+        #error_explanation
+          %h2
+            = pluralize(employment_type.errors.count, "error")
+            prohibited this employment_type from being saved:
+          %ul
+            - employment_type.errors.each do |error|
+              %li= error.full_message
+      .row.mt-2
+        .col-sm-3
+          = form.label :name
+        .col-sm-5
+          = form.text_field :name
+      .row.mt-2
+        .col-sm-3
+          = form.label :salary
+        .col-sm-5
+          = form.text_field :salary, type: :numeric
+      .row.mt-3
+        .col-sm-3
+        .col-sm-5
+          .actions
+            = form.submit

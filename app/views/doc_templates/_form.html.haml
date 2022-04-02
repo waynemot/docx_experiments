@@ -1,0 +1,33 @@
+.mt-5
+   
+= form_with(model: doc_template) do |form|
+  - if doc_template.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(doc_template.errors.count, "error")
+        prohibited this doc_template from being saved:
+      %ul
+        - doc_template.errors.each do |error|
+          %li= error.full_message
+  .row.mt-2
+    .col-sm-3
+      = form.label :name
+    .col-sm-5
+      = form.text_field :name
+  .row.mt-2
+    .col-sm-3
+      = form.label :body, "Body Text:"
+    .col-sm-7
+      = form.text_area :body, size: "70x10"
+  .row.mt-2
+    .col-sm-3
+      = form.label :variable_hash, "Variable Defaults:"
+    .col-sm-7
+      = form.text_area :variable_hash, rows: 5, colums: 80
+  .row.mt-2
+    .col-sm-3
+      = form.label :document_template, "Template File"
+    .col-sm-7
+      = form.file_field :document_template
+  .actions
+    = form.submit
