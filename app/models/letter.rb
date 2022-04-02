@@ -1,4 +1,4 @@
 class Letter < ApplicationRecord
   belongs_to :request
-  has_one :doc_template
+  belongs_to :doc_template
 end
