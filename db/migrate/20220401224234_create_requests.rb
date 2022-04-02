@@ -4,7 +4,7 @@ class CreateRequests < ActiveRecord::Migration[6.1]
       t.string :name, required: true
       t.string :email, required: true
       t.string :address, required: true
-      t.integer :employment_id
+      t.integer :employment_type_id
       t.date :start_date
       t.date :end_date
       t.date :pay_start

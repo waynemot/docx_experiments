@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_02_022210) do
+ActiveRecord::Schema.define(version: 2022_04_02_115239) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -42,7 +42,13 @@ ActiveRecord::Schema.define(version: 2022_04_02_022210) do
 
   create_table "doc_templates", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
+    t.text "body"
     t.text "variable_hash"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "docx_letters", charset: "utf8mb4", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -66,7 +72,7 @@ ActiveRecord::Schema.define(version: 2022_04_02_022210) do
     t.string "name"
     t.string "email"
     t.string "address"
-    t.integer "employment_id"
+    t.integer "employment_type_id"
     t.date "start_date"
     t.date "end_date"
     t.date "pay_start"
