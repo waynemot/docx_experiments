@@ -1,5 +1,5 @@
 class RequestsController < ApplicationController
-  before_action :set_request, only: %i[ show edit update destroy ]
+  before_action :set_request, only: %i[ show edit update destroy generate ]
 
   # GET /requests or /requests.json
   def index
@@ -8,6 +8,10 @@ class RequestsController < ApplicationController
 
   # GET /requests/1 or /requests/1.json
   def show
+  end
+
+  def generate
+    @letter = DocxLetter.new(@request.letter)
   end
 
   # GET /requests/new

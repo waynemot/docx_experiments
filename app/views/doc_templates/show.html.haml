@@ -11,7 +11,9 @@
     .col-sm-10
       %span.fw-bold
         Body Text:
-      = @doc_template.body
+      -if @doc_template.body.nil?
+      -else
+        =  "#{@doc_template.body[0..256]} "+"#{@doc_template.body.length > 256 ? "..." : ""}"
   .row
     %span.fw-bold
       Default Variables:
@@ -21,6 +23,6 @@
       %span.label.fw-bold
         Attachment:
       = @doc_template.document_template.attached? ? @doc_template.document_template.filename.to_s : ""
-  = link_to 'Edit', edit_doc_template_path(@doc_template)
+  = link_to 'Edit', edit_doc_template_path(@doc_template), class: "btn btn-sm btn-primary"
   |
-  \#{link_to 'Back', doc_templates_path}
+  \#{link_to 'Back', doc_templates_path, class: "btn btn-sm btn-secondary"}

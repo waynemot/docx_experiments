@@ -65,6 +65,6 @@ class DocTemplatesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def doc_template_params
-      params.require(:doc_template).permit(:name, :variable_hash, :document_template)
+      params.require(:doc_template).permit(:name, :variable_hash, :body, :document_template)
     end
 end

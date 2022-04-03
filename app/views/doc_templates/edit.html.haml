@@ -1,5 +1,8 @@
 %h1 Editing Doc Template
 = render 'form', doc_template: @doc_template
-= link_to 'Show', @doc_template
-|
-= link_to 'Back', doc_templates_path
+.row.mt-lg-2
+  .col-sm-1
+  .col-sm-3
+    = link_to 'Show', @doc_template, class: "btn btn-sm btn-primary"
+  .col-sm-3
+    = link_to 'Back', doc_templates_path, class: "btn btn-sm btn-secondary"

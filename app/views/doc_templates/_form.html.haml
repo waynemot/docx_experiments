@@ -9,25 +9,27 @@
       %ul
         - doc_template.errors.each do |error|
           %li= error.full_message
-  .row.mt-2
+  .row.mt-2.form-group
     .col-sm-3
-      = form.label :name
+      = form.label :name, class: "form_label"
     .col-sm-5
-      = form.text_field :name
+      = form.text_field :name, class: "form-field"
   .row.mt-2
     .col-sm-3
-      = form.label :body, "Body Text:"
+      = form.label :body, "Body Text:", class: "form_label"
     .col-sm-7
-      = form.text_area :body, size: "70x10"
+      = form.text_area :body, size: "70x10", class: "form-textarea"
   .row.mt-2
     .col-sm-3
-      = form.label :variable_hash, "Variable Defaults:"
+      = form.label :variable_hash, "Variable Defaults:", class: "form_label"
     .col-sm-7
-      = form.text_area :variable_hash, rows: 5, colums: 80
+      = form.text_area :variable_hash, rows: 5, colums: 80, class: "form-textarea"
   .row.mt-2
     .col-sm-3
-      = form.label :document_template, "Template File"
-    .col-sm-7
-      = form.file_field :document_template
+      = form.label :document_template, "Template File", class: "form_label"
+    .col-sm-9
+      = form.file_field :document_template,  class: "form-file"
+      - if form.object.document_template.attached?
+        = "Current: #{form.object.document_template.filename}"
   .actions
     = form.submit
