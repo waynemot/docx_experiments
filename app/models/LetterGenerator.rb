@@ -25,5 +25,8 @@ class LetterGenerator
     # the tempfile, reopening that tempfile using Docx
     tempfile.close(false)
     doc = Docx.open(tempfile.path)
+    doc.paragraphs[0].text = "April 3, 2022"
+    doc.text.gsub!(/##DATE##/,"April 4, 2022") # THIS DOESN'T WORK - wdm
   end
+
 end
